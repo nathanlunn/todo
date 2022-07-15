@@ -7,7 +7,7 @@ export default function Todos() {
       .then(res => {
         console.log(res);
       })
-  }, [])
+  }, []) 
 
   return (
     <div>
