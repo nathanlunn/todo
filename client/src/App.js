@@ -4,16 +4,18 @@ import './App.css';
 import Todos from './Todos';
 
 function App() {
+  const {todos, setTodos} = useState([]);
+
   useEffect(() => {
     axios.get('http://localhost:8080/api/todos')
       .then(res => {
-        console.log(res.data);
+        setTodos(res.data);
       })
-  }, []) 
+  }, []);
 
   return (
     <div className="App">
-      <Todos/>
+      <Todos todos={todos}/>
     </div>
   );
 }
