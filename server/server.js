@@ -4,6 +4,7 @@ const cors = require('cors');
 
 const app = express();
 const port = 8080;
+const { urlencoded } = require('express');
 
 app.use(morgan('dev'));
 app.use(express.json());
@@ -12,7 +13,6 @@ app.use(cors());
 
 // import routers
 const todoRouter = require('./routes/todo-router');
-const { urlencoded } = require('express');
 
 // use routers
 app.use('/api/todos', todoRouter);
