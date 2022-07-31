@@ -1,6 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
+const pool = require('./db/db.js');
 
 const app = express();
 const port = 8080;
