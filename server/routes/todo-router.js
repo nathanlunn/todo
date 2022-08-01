@@ -4,8 +4,12 @@ const db = require('../db/db.js');
 
 //Create POST /todos
 router.post('/', (req, res) => {
-  const task = req.body;
-  console.log(task);
+  const task = req.body.newTodo;
+  const command = 'INSERT INTO todos (task) VALUES ($1) RETURNING *;';
+  db.query(command, [task])
+  .then(data => {
+    res.status(201).send(data.rows);
+  })
 })
 
 //Read GET /todos

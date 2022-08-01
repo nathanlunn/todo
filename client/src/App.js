@@ -15,7 +15,7 @@ function App() {
 
   return (
     <div className="App">
-      <Todos todos={todos}/>
+      <Todos todos={todos} setTodos={setTodos}/>
     </div>
   );
 }
