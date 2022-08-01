@@ -1,27 +1,19 @@
 const express = require('express');
 const router = express.Router();
-
-const todos = {
-  abc: {
-    id: 'abc',
-    task: 'do thing 1'
-  },
-  def: {
-    id: 'def',
-    task: 'stop being so lazy with todo ideas'
-  },
-  ghi: {
-    id: 'ghi',
-    task: 'do thing 3'
-  }
-}
+const db = require('../db/db.js');
 
 //Create POST /todos
+router.post('/', (req, res) => {
+  const task = req.body;
+  console.log(task);
+})
 
 //Read GET /todos
 router.get('/', (req, res) => {
-  const todosArray = Object.values(todos);
-  res.json(todosArray);
+  db.query('SELECT * FROM todos')
+  .then(data => {
+    res.send(data.rows);
+  })
 })
 
 //Update PATCH /todos/:id
