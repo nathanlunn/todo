@@ -14,9 +14,11 @@ app.use(cors());
 
 // import routers
 const todoRouter = require('./routes/todo-router');
+const userRouter = require('./routes/user-router');
 
 // use routers
 app.use('/api/todos', todoRouter);
+app.use('/api/users', userRouter);
 
 app.listen(port, () => {
   console.log(`app is listening on port ${port}`);
