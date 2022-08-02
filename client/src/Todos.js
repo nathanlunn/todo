@@ -2,14 +2,14 @@ import React, {useState} from 'react';
 import TodosItem from './TodosItem';
 import axios from 'axios';
 
-export default function Todos({todos, setTodos}) {
+export default function Todos({state, setState}) {
   const [newTodo, setNewTodo] = useState('');
 
   const addTodo = () => {
     axios.post('http://localhost:8080/api/todos', {newTodo})
     .then(res => {
       const addedTodo = res.data[0];
-      setTodos(prev => [...prev, addedTodo]);
+      setState(prev => ({...prev, todos: [...state.todos, addedTodo]}));
     })
     .then(res => {
       setNewTodo('');
@@ -19,10 +19,10 @@ export default function Todos({todos, setTodos}) {
     })
   }
 
-  const todosArray = todos.map(todo => {
+  const todosArray = state.todos.map(todo => {
     return (
       <TodosItem
-        key={todo.todo_id}
+        key={todo.id}
         task={todo.task}
       />
     )

@@ -7,26 +7,23 @@ import Register from './Register';
 
 function App() {
   const [state, setState] = useState({
-    user: {},
+    user: {username: 'nathan'},
     todos: [],
     signingUp: false,
   })
-  const [todos, setTodos] = useState([]);
-  const [user, setUser] = useState({});
-  const [signingUp, setSigningUp] = useState(false);
 
   useEffect(() => {
     axios.get('http://localhost:8080/api/todos')
       .then(res => {
-        setTodos(res.data);
+        setState(prev => ({...prev, todos: res.data}));
       })
   }, []);
 
   return (
     <div className="App">
-      {!user.username && !signingUp && <Login setUser={setUser} setSigningUp={setSigningUp}/>}
-      {!user.username && signingUp && <Register setUser={setUser} setSigningUp={setSigningUp}/>}
-      {user.username && <Todos todos={todos} setTodos={setTodos}/>}
+      {!state.user.username && !state.signingUp && <Login setState={setState}/>}
+      {!state.user.username && state.signingUp && <Register setState={setState}/>}
+      {state.user.username && <Todos state={state} setState={setState}/>}
     </div>
   );
 }
