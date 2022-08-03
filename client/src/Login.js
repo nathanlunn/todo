@@ -18,7 +18,7 @@ export default function Login({setState}) {
   }, [hitEnterAfterUsername])
 
   const login = () => {
-    axios.get('/http://localhost:8080/api/users')
+    axios.post('http://localhost:8080/api/users', {username, password})
   }
 
   return (
