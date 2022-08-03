@@ -63,6 +63,8 @@ export default function Login({setState}) {
           />
         </div>
         <button onClick={() => login()}>LOGIN!</button>
+        <h4>No Account? Sign Up!</h4>
+        <button onClick={() => setState(prev => ({...prev, signingUp: true}))}>Sing Up</button>
       </div>
     </div>
   );

@@ -13,11 +13,11 @@ function App() {
   })
 
   useEffect(() => {
-    axios.get('http://localhost:8080/api/todos')
+    axios.post('http://localhost:8080/api/todos', {userId: state.user.id})
       .then(res => {
         setState(prev => ({...prev, todos: res.data}));
       })
-  }, []);
+  }, [state.user]);
 
   return (
     <div className="App">

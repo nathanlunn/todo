@@ -6,7 +6,7 @@ export default function Register({setState}) {
 
   return (
     <div>
-
+      <button onClick={() => {setState(prev => ({...prev, signingUp: false}))}}>Login</button>
     </div>
   );
 }
