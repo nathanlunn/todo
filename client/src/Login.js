@@ -5,6 +5,7 @@ export default function Login({setState}) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [hitEnterAfterUsername, setHitEnterAfterUsername] = useState(false);
+  const [wrongCredentials, setWrongCredentials] = useState(false);
 
   const userRef = useRef();
   const passRef = useRef();
@@ -19,6 +20,15 @@ export default function Login({setState}) {
 
   const login = () => {
     axios.post('http://localhost:8080/api/users', {username, password})
+    .then(res => {
+      const user = res.data.rows[0];
+      if (user) {
+        setState (prev => ({...prev, user: user}));
+      } else {
+        setWrongCredentials(true);
+        setPassword('');
+      }
+    })
   }
 
   return (
@@ -26,6 +36,7 @@ export default function Login({setState}) {
       <h2>Login!</h2>
       <div>
         <div>
+          {wrongCredentials && <h2>Your Username or Password is Invalid!</h2>}
           <label for="username" >Username:</label>
           <input 
             type="text" 

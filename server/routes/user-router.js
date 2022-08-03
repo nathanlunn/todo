@@ -7,9 +7,14 @@ router.post('/', (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
 
-  db.query('SELECT * FROM users;')
+  db.query('SELECT * FROM users WHERE username = $1 AND password = $2;', [username, password])
   .then(data => {
-    console.log(data.rows);
+    if (data) {
+      res.send(data);
+    }
+  })
+  .catch(err => {
+    window.alert(err.message)
   })
 })
 
