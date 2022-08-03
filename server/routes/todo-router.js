@@ -19,7 +19,7 @@ router.post('/add', (req, res) => {
 //Retrieve POST /api/todos/
 router.post('/', (req, res) => {
   const userId = req.body.userId;
-  db.query('SELECT * FROM todos WHERE user_id = $1;', [userId])
+  db.query('SELECT * FROM todos WHERE user_id = $1 ORDER BY id DESC;', [userId])
   .then(data => {
     res.send(data.rows);
   })

@@ -9,7 +9,7 @@ export default function Todos({state, setState}) {
     axios.post('http://localhost:8080/api/todos/add', {task: newTodo, userId: state.user.id})
     .then(res => {
       const addedTodo = res.data[0];
-      setState(prev => ({...prev, todos: [...state.todos, addedTodo]}));
+      setState(prev => ({...prev, todos: [addedTodo, ...state.todos]}));
     })
     .then(res => {
       setNewTodo('');
