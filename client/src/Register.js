@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 
-export default function Register({user, setUser}) {
+export default function Register({setState}) {
 
 
   return (
     <div>
-      
+
     </div>
   );
 }

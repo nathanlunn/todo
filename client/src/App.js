@@ -7,7 +7,7 @@ import Register from './Register';
 
 function App() {
   const [state, setState] = useState({
-    user: {username: 'nathan'},/* temporary logged in illusion before login page*/
+    user: {},/* temporary logged in illusion before login page*/
     todos: [],
     signingUp: false,
   })
