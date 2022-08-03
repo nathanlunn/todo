@@ -5,12 +5,13 @@ export default function Register({setState}) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [focus, setFocus] = useState('user');
+  const [image, setImage] = useState(null);
+  const [error, setError] = useState('');
   
   const userRef = useRef();
   const passRef = useRef();
   const confirmRef = useRef();
-
-  const [focus, setFocus] = useState('user');
   
   useEffect(() => {
     if(focus === 'user') {
@@ -23,16 +24,29 @@ export default function Register({setState}) {
   }, [focus])
 
   const signUp = () => {
-    if (password === confirmPassword) {
-      console.log('same');
+    if (password !== confirmPassword) {
+      setError('Passwords are not the same');
       return;
     }
-    console.log('different');
+    axios.post('http://localhost:8080/api/users/register', {username, password, image})
+    .then(res => {
+      if(res.data === 'used') {
+        setError('That username is already in use');
+        return;
+      }
+      setState(prev => ({...prev, user: res.data[0]}));
+    })
+    .catch(err => {
+      console.error(err.message);
+    })
   }
 
   return (
     <div>
       <h1>Register</h1>
+
+      {error && <h3>{error}</h3>}
+
       <div>
         <div>
           <label for="username">Username:</label>
@@ -73,7 +87,15 @@ export default function Register({setState}) {
             required
           />
         </div>
+        <div>
+          <label>Select Image for Avatar:</label>
+          <input 
+            type="file"
+            onChange={e => {setImage(e.target.files[0])}}
+          />
+        </div>
       </div>
+
       <button onClick={() => signUp()}>Sign Up!</button>
       <h4>Already Have an Account? Login!</h4>
       <button onClick={() => {setState(prev => ({...prev, signingUp: false}))}}>Login</button>

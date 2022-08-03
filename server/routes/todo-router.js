@@ -12,7 +12,7 @@ router.post('/add', (req, res) => {
     res.status(201).send(data.rows);
   })
   .catch(err => {
-    window.alert(err.message)
+    console.error(err.message);
   })
 })
 
@@ -24,7 +24,7 @@ router.post('/', (req, res) => {
     res.send(data.rows);
   })
   .catch(err => {
-    window.alert(err.message)
+    console.error(err.message);
   })
 })
 
