@@ -1,6 +1,12 @@
 .nav {
-  background-color: rgb(175, 187, 43);
+  background-color: #C75000;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-sizing: border-box;
+  height: 4em;
+  padding: 0.5em;
+}
+.nav .nav__logo {
+  color: #171616;
 }/*# sourceMappingURL=Nav.css.map */

@@ -1,8 +1,15 @@
 @import "../SassVariables/Variables.scss";
 
 .nav {
-  background-color: $mainYellow;
+  background-color: $burntOrange;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-sizing: border-box;
+  height: 4em;
+  padding: .5em;
+
+  .nav__logo{
+    color: $charcoal;
+  }
 }
