@@ -34,7 +34,7 @@ export default function Register({setState}) {
         setError('That username is already in use');
         return;
       }
-      setState(prev => ({...prev, user: res.data[0]}));
+      setState(prev => ({...prev, user: res.data[0], signingUp: false}));
     })
     .catch(err => {
       console.error(err.message);

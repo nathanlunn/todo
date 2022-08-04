@@ -22,7 +22,7 @@ function App() {
 
   return (
     <div className="App">
-      <Nav state={state} useState={useState}/>
+      <Nav state={state} setState={setState}/>
       {!state.user.username && !state.signingUp && <Login setState={setState}/>}
       {!state.user.username && state.signingUp && <Register setState={setState}/>}
       {state.user.username && <Todos state={state} setState={setState}/>}
