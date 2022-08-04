@@ -1,0 +1,8 @@
+@import "../SassVariables/Variables.scss";
+
+.nav {
+  background-color: $mainYellow;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

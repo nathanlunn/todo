@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
-import './App.css';
-import Todos from './Todos';
-import Login from './Login';
-import Register from './Register';
-import Nav from './Nav';
+import Todos from './Components/Todos';
+import Login from './Components/Login';
+import Register from './Components/Register';
+import Nav from './Components/Nav';
+import './Styles/App.css';
 
 function App() {
   const [state, setState] = useState({

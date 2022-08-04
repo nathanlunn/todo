@@ -49,7 +49,7 @@ export default function Register({setState}) {
 
       <div>
         <div>
-          <label for="username">Username:</label>
+          <label htmlFor="username">Username:</label>
           <input
             type="text"
             name="username"
@@ -62,7 +62,7 @@ export default function Register({setState}) {
           />
         </div>
         <div>
-          <label for="password">Password:</label>
+          <label htmlFor="password">Password:</label>
           <input
             type="password"
             name="password"
@@ -75,7 +75,7 @@ export default function Register({setState}) {
           />
         </div>
         <div>
-          <label for="confirmPassword">Confirm Password:</label>
+          <label htmlFor="confirmPassword">Confirm Password:</label>
           <input
             type="password"
             name="confirmPassword"
@@ -88,8 +88,9 @@ export default function Register({setState}) {
           />
         </div>
         <div>
-          <label>Select Image for Avatar:</label>
+          <label htmlFor="image">Select Image for Avatar:</label>
           <input 
+            name="image"
             type="file"
             onChange={e => {setImage(e.target.files[0])}}
           />
