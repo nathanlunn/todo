@@ -4,10 +4,11 @@ import './App.css';
 import Todos from './Todos';
 import Login from './Login';
 import Register from './Register';
+import Nav from './Nav';
 
 function App() {
   const [state, setState] = useState({
-    user: {},/* temporary logged in illusion before login page*/
+    user: {},
     todos: [],
     signingUp: false,
   })
@@ -21,6 +22,7 @@ function App() {
 
   return (
     <div className="App">
+      <Nav state={state} useState={useState}/>
       {!state.user.username && !state.signingUp && <Login setState={setState}/>}
       {!state.user.username && state.signingUp && <Register setState={setState}/>}
       {state.user.username && <Todos state={state} setState={setState}/>}
