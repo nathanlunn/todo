@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
+import '../Styles/TodosItem.css';
 
 export default function TodosItem({todo, setState}) {
   const [confirmation, setConfirmation] = useState(false)
@@ -20,8 +21,8 @@ export default function TodosItem({todo, setState}) {
   }
 
   return (
-    <li>
-      {todo.task}
+    <div className="todo">
+      <p>{todo.task}</p>
       <button onClick={promptConfirmation}>X</button>
       {confirmation && (
         <div>
@@ -30,7 +31,7 @@ export default function TodosItem({todo, setState}) {
           <button onClick={() => setConfirmation(false)}>NO</button>
         </div>
       )}
-    </li>
+    </div>
   )
 }
 
