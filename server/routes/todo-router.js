@@ -14,7 +14,7 @@ router.post('/add', (req, res) => {
   .catch(err => {
     console.error(err.message);
   })
-})
+});
 
 //Retrieve POST /api/todos/
 router.post('/', (req, res) => {
@@ -26,7 +26,7 @@ router.post('/', (req, res) => {
   .catch(err => {
     console.error(err.message);
   })
-})
+});
 
 //Update PATCH /api/todos/:id
 
@@ -40,7 +40,7 @@ router.post('/delete', (req, res) => {
   .catch(err => {
     console.error(err.message);
   })
-})
+});
 
 
 module.exports = router;

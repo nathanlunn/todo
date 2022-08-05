@@ -11,6 +11,7 @@ CREATE TABLE users(
 CREATE TABLE todos(
   id SERIAL PRIMARY KEY,
   task VARCHAR(255) NOT NULL,
-  user_id integer REFERENCES users(id) ON DELETE CASCADE
+  user_id integer REFERENCES users(id) ON DELETE CASCADE,
+  completed BOOLEAN DEFAULT false
 );
 
