@@ -4,8 +4,13 @@ import axios from 'axios';
 
 export default function Todos({state, setState}) {
   const [newTodo, setNewTodo] = useState('');
+  const [errorMessage, setErroMessage] = useState('');
 
   const addTodo = () => {
+    if (newTodo === '') {
+      setErroMessage('You cannot create a blank todo');
+      return;
+    }
     axios.post('http://localhost:8080/api/todos/add', {task: newTodo, userId: state.user.id})
     .then(res => {
       const addedTodo = res.data[0];
@@ -13,6 +18,7 @@ export default function Todos({state, setState}) {
     })
     .then(res => {
       setNewTodo('');
+      setErroMessage('');
     })
     .catch(err => {
       console.error(err.message);
@@ -31,6 +37,7 @@ export default function Todos({state, setState}) {
   return (
     <div>
       <h1>{state.user.username}'s Todos</h1>
+      {errorMessage && <h2>{errorMessage}</h2>}
       <input 
         type="text" 
         placeholder="new todo"
