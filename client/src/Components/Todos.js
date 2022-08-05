@@ -29,7 +29,8 @@ export default function Todos({state, setState}) {
     return (
       <TodosItem
         key={todo.id}
-        task={todo.task}
+        todo={todo}
+        setState={setState}
       />
     )
   });

@@ -30,7 +30,17 @@ router.post('/', (req, res) => {
 
 //Update PATCH /api/todos/:id
 
-//Delete DELETE /api/todos/:id
+//Delete DELETE /api/todos/delete
+router.post('/delete', (req, res) => {
+  const todoId = req.body.todoId;
+  db.query('DELETE FROM todos WHERE id = $1', [todoId])
+  .then(data => {
+    res.send('deleted');
+  })
+  .catch(err => {
+    console.error(err.message);
+  })
+})
 
 
 module.exports = router;
