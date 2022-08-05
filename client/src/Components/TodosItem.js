@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import '../Styles/TodosItem.css';
 
 export default function TodosItem({todo, setState}) {
-  const [confirmation, setConfirmation] = useState(false)
+  const [confirmation, setConfirmation] = useState(false);
 
   const promptConfirmation = () => {
     setConfirmation(true);
@@ -22,7 +22,7 @@ export default function TodosItem({todo, setState}) {
 
   return (
     <div className="todo">
-      <p>{todo.task}</p>
+      {todo.complete ? <p className="todo__p todo__p--completed">{todo.task}</p> : <p className="todo__p">{todo.task}</p>}
       <button onClick={promptConfirmation}>X</button>
       {confirmation && (
         <div>

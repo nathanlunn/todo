@@ -1,3 +1,10 @@
 .todo {
   display: flex;
+  margin: 0.6em;
+}
+.todo .todo__p {
+  font-size: large;
+}
+.todo .todo__p .todo__p--completed {
+  text-decoration: line-through;
 }/*# sourceMappingURL=TodosItem.css.map */
