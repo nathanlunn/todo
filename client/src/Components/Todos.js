@@ -31,6 +31,7 @@ export default function Todos({state, setState}) {
         key={todo.id}
         todo={todo}
         setState={setState}
+        state={state}
       />
     )
   });

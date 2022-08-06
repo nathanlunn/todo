@@ -2,11 +2,25 @@ import axios from "axios";
 import React, { useState } from "react";
 import '../Styles/TodosItem.css';
 
-export default function TodosItem({todo, setState}) {
+export default function TodosItem({todo, state, setState}) {
   const [confirmation, setConfirmation] = useState(false);
 
   const promptConfirmation = () => {
     setConfirmation(true);
+  }
+
+  const markAsComplete = () => {
+    axios.post('http://localhost:8080/api/todos/completed', {todoId: todo.id})
+    .then(res => {
+      setState(prev => ({...prev, todos: state.todos.map(eachTodo => {
+        if (eachTodo.id === todo.id) {
+          todo.completed = true;
+        }
+      })}));
+    })
+    .catch(err => {
+      console.error(err.message);
+    })
   }
 
   const deleteTodo = () => {
@@ -23,7 +37,8 @@ export default function TodosItem({todo, setState}) {
   return (
     <div className="todo">
       {todo.complete ? <p className="todo__p todo__p--completed">{todo.task}</p> : <p className="todo__p">{todo.task}</p>}
-      <button onClick={promptConfirmation}>X</button>
+      <button onClick={markAsComplete}>Mark as Complete</button>
+      <button name="deleteds" onClick={promptConfirmation}>X</button>
       {confirmation && (
         <div>
           <h4>Are you sure you want to delete this todo?</h4>

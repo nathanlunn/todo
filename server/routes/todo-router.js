@@ -28,6 +28,19 @@ router.post('/', (req, res) => {
   })
 });
 
+//Mark as Completed
+
+router.post('/completed', (req, res) => {
+  const todoId = req.body.todoId;
+  db.query('UPDATE', [todoId])
+  .then(data => {
+    res.send('good');
+  })
+  .catch(err => {
+    console.error(err.message); 
+  })
+})
+
 //Update PATCH /api/todos/:id
 
 //Delete DELETE /api/todos/delete
@@ -41,6 +54,8 @@ router.post('/delete', (req, res) => {
     console.error(err.message);
   })
 });
+
+
 
 
 module.exports = router;
