@@ -32,7 +32,7 @@ router.post('/', (req, res) => {
 
 router.post('/completed', (req, res) => {
   const todoId = req.body.todoId;
-  db.query('UPDATE', [todoId])
+  db.query('UPDATE todos SET completed = true WHERE id = $1', [todoId])
   .then(data => {
     res.send('good');
   })

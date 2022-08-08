@@ -5,6 +5,6 @@
 .todo .todo__p {
   font-size: large;
 }
-.todo .todo__p .todo__p--completed {
+.todo .todo__p--completed {
   text-decoration: line-through;
 }/*# sourceMappingURL=TodosItem.css.map */
