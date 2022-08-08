@@ -78,20 +78,22 @@ export default function TodosItem({todo, state, setState}) {
         </div>
         <div className="todo__buttonsRight">
           {!editing && !confirmation && 
-            (<button 
+            (<button
+              className="todo__button todo__button--delete"
               name="deleted" 
               onClick={promptConfirmation}
             >X</button>)
           }
           {!editing && !confirmation && 
             (<button 
+              className="todo__button todo__button--edit"
               name="edit" 
               onClick={() => {setEditing(true)}}
             >Edit</button>)
           }
         </div>
       </div>
-      
+
       {editing && (
         <div>
           <input

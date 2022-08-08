@@ -6,9 +6,29 @@
   padding: .6em;
   background-color: $banana;
   border: solid .1em $blackBean;
+
   .todo__buttonBox{
     display:flex;
     justify-content: space-between;
+
+    .todo__button{
+      padding: .8em;
+      border: solid black .2em;
+      border-radius: 5px;
+      margin: .1em;
+    }
+    .todo__button--markAsComplete {
+      background-color: $brown;
+      color: $lightLetters;
+    }
+    .todo__button--delete {
+      background-color: $red;
+      color: $lightLetters;
+    }
+    .todo__button--edit {
+      background-color: $blue;
+      color: $lightLetters;
+    }
   }
   .todo__p {
     font-size: 2em;

@@ -9,6 +9,24 @@
   display: flex;
   justify-content: space-between;
 }
+.todo .todo__buttonBox .todo__button {
+  padding: 0.8em;
+  border: solid black 0.2em;
+  border-radius: 5px;
+  margin: 0.1em;
+}
+.todo .todo__buttonBox .todo__button--markAsComplete {
+  background-color: #945600;
+  color: rgb(244, 229, 194);
+}
+.todo .todo__buttonBox .todo__button--delete {
+  background-color: rgb(207, 65, 25);
+  color: rgb(244, 229, 194);
+}
+.todo .todo__buttonBox .todo__button--edit {
+  background-color: rgb(52, 121, 105);
+  color: rgb(244, 229, 194);
+}
 .todo .todo__p {
   font-size: 2em;
   font-family: "Uchen", serif;
