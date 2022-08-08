@@ -12,10 +12,12 @@ export default function TodosItem({todo, state, setState}) {
   const markAsComplete = () => {
     axios.post('http://localhost:8080/api/todos/completed', {todoId: todo.id})
     .then(res => {
-      setState(prev => ({...prev, todos: state.todos.map(eachTodo => {
-        if (eachTodo.id === todo.id) {
-          todo.completed = true;
+      setState(prev => ({...prev, todos: prev.todos.map(el => {
+        if (el.id === todo.id) {
+          el.completed = true;
+          return el;
         }
+        return el;
       })}));
     })
     .catch(err => {
@@ -34,7 +36,7 @@ export default function TodosItem({todo, state, setState}) {
     })
   }
 
-  console.log(todo);
+  console.log(state.todos);
 
   return (
     <div className="todo">
