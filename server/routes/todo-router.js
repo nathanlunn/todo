@@ -41,7 +41,19 @@ router.post('/completed', (req, res) => {
   })
 })
 
-//Update PATCH /api/todos/:id
+//Update PATCH /api/todos/edit
+
+router.post('/edit', (req, res) => {
+  const task = req.body.task;
+  const todoId = req.body.todoId;
+  db.query('UPDATE todos SET task = $1 WHERE id = $2', [task, todoId])
+  .then(data => {
+    res.send('good');
+  })
+  .catch(err => {
+    console.error(err.message);
+  })
+})
 
 //Delete DELETE /api/todos/delete
 router.post('/delete', (req, res) => {
