@@ -1,9 +1,17 @@
+@import '../SassVariables/Variables.scss';
+
 .todo {
   display: flex;
-  margin: .6em;
-
+  flex-direction: column;
+  padding: .6em;
+  background-color: $banana;
+  border: solid .1em $blackBean;
+  .todo__buttonBox{
+    display:flex;
+    justify-content: space-between;
+  }
   .todo__p {
-    font-size: large;
+    font-size: 2em;
 
   }
   .todo__p--completed {

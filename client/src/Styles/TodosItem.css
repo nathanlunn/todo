@@ -1,9 +1,16 @@
 .todo {
   display: flex;
-  margin: 0.6em;
+  flex-direction: column;
+  padding: 0.6em;
+  background-color: #F0DFAD;
+  border: solid 0.1em #2F1000;
+}
+.todo .todo__buttonBox {
+  display: flex;
+  justify-content: space-between;
 }
 .todo .todo__p {
-  font-size: large;
+  font-size: 2em;
 }
 .todo .todo__p--completed {
   text-decoration: line-through;
