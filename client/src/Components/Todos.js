@@ -28,7 +28,7 @@ export default function Todos({state, setState}) {
   const todosArray = state.todos.map(todo => {
     return (
       <TodosItem
-        // key={todo.id}
+        key={todo.id}
         todo={todo}
         setState={setState}
         state={state}

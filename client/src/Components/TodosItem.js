@@ -6,6 +6,7 @@ export default function TodosItem({todo, state, setState}) {
   const [confirmation, setConfirmation] = useState(false);
   const [editing, setEditing] = useState(false);
   const [task, setTask] = useState(todo.task);
+  const [incomplete, setIncomplete] = useState(false);
 
   const promptConfirmation = () => {
     setConfirmation(true);
@@ -39,12 +40,13 @@ export default function TodosItem({todo, state, setState}) {
   }
 
   const confirmEdit = () => {
-    if (todo.task !== task) {
-      axios.post('http://localhost:8080/api/todos/edit', {task, todoId: todo.id})
+    if (todo.task !== task || incomplete) {
+      axios.post('http://localhost:8080/api/todos/edit', {task, todoId: todo.id, incomplete})
       .then(res => {
         setState(prev => ({...prev, todos: prev.todos.map(el => {
           if (el.id === todo.id) {
             el.task = task;
+            el.completed = !incomplete;
             return el;
           }
           return el;
@@ -55,6 +57,7 @@ export default function TodosItem({todo, state, setState}) {
       })
 
       setEditing(false);
+      setIncomplete(false);
       return;
     }
     setEditing(false);
@@ -63,7 +66,7 @@ export default function TodosItem({todo, state, setState}) {
   return (
     <div className="todo">
       {!editing && (todo.completed ? <p className="todo__p todo__p--completed">{todo.task}</p> : <p className="todo__p">{todo.task}</p>)}
-      {!todo.completed && <button onClick={markAsComplete}>Mark as Complete</button>}
+      {!todo.completed && !editing && <button onClick={markAsComplete}>Mark as Complete</button>}
       {!editing && <button name="deleted" onClick={promptConfirmation}>X</button>}
       {!editing && <button name="edit" onClick={() => {setEditing(true)}}>Edit</button> }
       {editing && (
@@ -73,15 +76,16 @@ export default function TodosItem({todo, state, setState}) {
             value={task}
             onChange={e => {setTask(e.target.value)}}
           />
-          {/* {todo.completed && (
+          {todo.completed && (
             <div>
-              <label for="unmarkComplete">Mark as Incomplete</label>
+              <label htmlFor="unmarkComplete">Mark as Incomplete</label>
               <input 
                 type="checkbox"
                 name="unmarkComplete"
+                onChange={e => {setIncomplete(e.target.checked);}}
               />
             </div>  
-          )} */}
+          )}
           <button onClick={confirmEdit}>Confirm</button>
           <button onClick={() => setEditing(false)}>Cancel</button>
         </div>

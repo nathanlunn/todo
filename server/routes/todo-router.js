@@ -46,6 +46,16 @@ router.post('/completed', (req, res) => {
 router.post('/edit', (req, res) => {
   const task = req.body.task;
   const todoId = req.body.todoId;
+  if (req.body.incomplete) {
+    db.query('UPDATE todos SET task = $1, completed = false WHERE id = $2', [task, todoId])
+    .then(data => {
+      res.send('good');
+    })
+    .catch(err => {
+      console.error(err.message);
+    })
+    return;
+  }
   db.query('UPDATE todos SET task = $1 WHERE id = $2', [task, todoId])
   .then(data => {
     res.send('good');
