@@ -41,7 +41,7 @@ export default function TodosItem({todo, state, setState}) {
   return (
     <div className="todo">
       {todo.completed ? <p className="todo__p todo__p--completed">{todo.task}</p> : <p className="todo__p">{todo.task}</p>}
-      <button onClick={markAsComplete}>Mark as Complete</button>
+      {!todo.completed && <button onClick={markAsComplete}>Mark as Complete</button>}
       <button name="deleteds" onClick={promptConfirmation}>X</button>
       {confirmation && (
         <div>
