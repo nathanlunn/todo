@@ -6,17 +6,20 @@
   padding: .6em;
   background-color: $banana;
   border: solid .1em $blackBean;
+  position: relative;
+  height: 7em;
+
+  .todo__button{
+    padding: .8em;
+    border: solid black .2em;
+    border-radius: 5px;
+    margin: .1em;
+  }
 
   .todo__buttonBox{
     display:flex;
     justify-content: space-between;
 
-    .todo__button{
-      padding: .8em;
-      border: solid black .2em;
-      border-radius: 5px;
-      margin: .1em;
-    }
     .todo__button--markAsComplete {
       background-color: $brown;
       color: $lightLetters;
@@ -30,12 +33,51 @@
       color: $lightLetters;
     }
   }
+
   .todo__p {
     font-size: 2em;
     font-family: 'Uchen', serif;
 
   }
+
   .todo__p--completed {
     text-decoration: line-through;
+  }
+
+  .todo__confirmationBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    position: absolute;
+    padding: .4em;
+    border: solid .1em black;
+    background-color: $red;
+    color: $lightLetters;
+    width: 20em;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    height: 70%;
+
+    .todo__button--yes {
+      padding: .2em;
+    }
+
+    .todo__button--no {
+      padding: .2em;
+    }
+  }
+
+  .todo__editBox {
+
+    .todo__input--taskEdit {
+      font-size: 2em;
+      font-family: 'Uchen', serif;
+      position: relative;
+      left: -3px;
+      top: -3px;
+    }
   }
 }

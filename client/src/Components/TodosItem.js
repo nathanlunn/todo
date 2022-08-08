@@ -95,8 +95,9 @@ export default function TodosItem({todo, state, setState}) {
       </div>
 
       {editing && (
-        <div>
+        <div className="todo__editBox">
           <input
+            className="todo__input--taskEdit"
             type="text"
             value={task}
             onChange={e => {setTask(e.target.value)}}
@@ -117,10 +118,12 @@ export default function TodosItem({todo, state, setState}) {
       )}
 
       {confirmation && (
-        <div>
+        <div className="todo__confirmationBox">
           <h4>Are you sure you want to delete this todo?</h4>
-          <button onClick={deleteTodo}>YES</button>
-          <button onClick={() => setConfirmation(false)}>NO</button>
+          <div>          
+            <button className="todo__button todo__button--yes" onClick={deleteTodo}>YES</button>
+            <button className="todo__button todo__button--no" onClick={() => setConfirmation(false)}>NO</button>
+          </div>
         </div>
       )}
     </div>

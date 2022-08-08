@@ -4,16 +4,18 @@
   padding: 0.6em;
   background-color: #F0DFAD;
   border: solid 0.1em #2F1000;
+  position: relative;
+  height: 7em;
 }
-.todo .todo__buttonBox {
-  display: flex;
-  justify-content: space-between;
-}
-.todo .todo__buttonBox .todo__button {
+.todo .todo__button {
   padding: 0.8em;
   border: solid black 0.2em;
   border-radius: 5px;
   margin: 0.1em;
+}
+.todo .todo__buttonBox {
+  display: flex;
+  justify-content: space-between;
 }
 .todo .todo__buttonBox .todo__button--markAsComplete {
   background-color: #945600;
@@ -33,4 +35,34 @@
 }
 .todo .todo__p--completed {
   text-decoration: line-through;
+}
+.todo .todo__confirmationBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  position: absolute;
+  padding: 0.4em;
+  border: solid 0.1em black;
+  background-color: rgb(207, 65, 25);
+  color: rgb(244, 229, 194);
+  width: 20em;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  height: 70%;
+}
+.todo .todo__confirmationBox .todo__button--yes {
+  padding: 0.2em;
+}
+.todo .todo__confirmationBox .todo__button--no {
+  padding: 0.2em;
+}
+.todo .todo__editBox .todo__input--taskEdit {
+  font-size: 2em;
+  font-family: "Uchen", serif;
+  position: relative;
+  left: -3px;
+  top: -3px;
 }/*# sourceMappingURL=TodosItem.css.map */
