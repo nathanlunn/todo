@@ -11,6 +11,7 @@
 }
 .todo .todo__p {
   font-size: 2em;
+  font-family: "Uchen", serif;
 }
 .todo .todo__p--completed {
   text-decoration: line-through;
