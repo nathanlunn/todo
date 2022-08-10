@@ -1,3 +1,37 @@
 .userPage {
-  color: red;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2em;
+  background-color: #621B00;
+}
+.userPage h1 {
+  margin-bottom: 0.5em;
+  font-family: "Cinzel", serif;
+  color: rgb(244, 229, 194);
+}
+.userPage .userPage__newTodo input {
+  box-sizing: border-box;
+  height: 50px;
+  border: solid black 0.15em;
+  border-radius: 5px 0 0 5px;
+  border-right: 0;
+  font-size: 1em;
+  position: relative;
+  top: 1px;
+}
+.userPage .userPage__newTodo input:active {
+  border: solid black 0.2em;
+  border-right: 0;
+}
+.userPage .userPage__newTodo button {
+  box-sizing: border-box;
+  height: 50px;
+  padding: 0.8em;
+  border: solid black 0.2em;
+  border-radius: 0 5px 5px 0;
+}
+.userPage .userPage__newTodo button:hover {
+  opacity: 80%;
+  cursor: pointer;
 }/*# sourceMappingURL=Todos.css.map */

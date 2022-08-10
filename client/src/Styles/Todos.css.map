@@ -1,1 +1,1 @@
-{"version":3,"sources":["Todos.scss","Todos.css"],"names":[],"mappings":"AAEA;EACE,UAAA;ACDF","file":"Todos.css"}
+{"version":3,"sources":["Todos.scss","../SassVariables/Variables.scss","Todos.css"],"names":[],"mappings":"AAEA;EACE,aAAA;EACA,sBAAA;EACA,mBAAA;EACA,YAAA;EACA,yBCLU;ACIZ;AFGE;EACE,oBAAA;EACA,4BAAA;EACA,yBCNW;ACKf;AFKI;EACE,sBAAA;EACA,YAAA;EACA,0BAAA;EACA,0BAAA;EACA,eAAA;EACA,cAAA;EACA,kBAAA;EACA,QAAA;AEHN;AFKI;EACE,yBAAA;EACA,eAAA;AEHN;AFMI;EACE,sBAAA;EACA,YAAA;EACA,cAAA;EACA,yBAAA;EACA,0BAAA;AEJN;AFMI;EACE,YAAA;EACA,eAAA;AEJN","file":"Todos.css"}

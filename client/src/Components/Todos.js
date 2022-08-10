@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import TodosItem from './TodosItem';
 import axios from 'axios';
 import '../Styles/Todos.css';
@@ -6,6 +6,14 @@ import '../Styles/Todos.css';
 export default function Todos({state, setState}) {
   const [newTodo, setNewTodo] = useState('');
   const [errorMessage, setErroMessage] = useState('');
+
+  useEffect(() => {
+    if (errorMessage) {
+      setTimeout(() => {
+        setErroMessage('');
+      }, 2000);
+    }
+  }, [errorMessage]);
 
   const addTodo = () => {
     if (newTodo === '') {
@@ -42,14 +50,16 @@ export default function Todos({state, setState}) {
       <div className="userPage">
         <h1>{state.user.username}'s Todos</h1>
         {errorMessage && <h2>{errorMessage}</h2>}
-        <input 
-          type="text" 
-          placeholder="new todo"
-          value={newTodo}
-          onChange={e => {setNewTodo(e.target.value)}}
-          onKeyPress={e => e.key === 'Enter' && addTodo()}
-        />
-        <button onClick={() => addTodo()}>Create New Todo</button>
+        <div className="userPage__newTodo">
+          <input 
+            type="text" 
+            placeholder="new todo"
+            value={newTodo}
+            onChange={e => {setNewTodo(e.target.value)}}
+            onKeyPress={e => e.key === 'Enter' && addTodo()}
+          />
+          <button onClick={() => addTodo()}>Create New Todo</button>
+        </div>
       </div>
 
       {todosArray}
