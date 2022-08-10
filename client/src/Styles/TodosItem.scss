@@ -15,6 +15,10 @@
     border-radius: 5px;
     margin: .1em;
   }
+  .todo__button:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
 
   .todo__buttonBox{
     display:flex;
@@ -71,13 +75,42 @@
   }
 
   .todo__editBox {
+    display: flex;
+    align-items: center;
 
     .todo__input--taskEdit {
       font-size: 2em;
       font-family: 'Uchen', serif;
       position: relative;
+      background-color: rgb(248, 237, 229);
       left: -3px;
       top: -3px;
+    }
+
+    .todo__editBox--confirmationButtons {
+      display: flex;
+      flex-direction: column;
+
+      .todo__button--confirm {
+        background-color: $green;
+        color: $lightLetters;
+      }
+      
+      .todo__button--cancel {
+        background-color: $red;
+        color: $lightLetters;
+      }
+    }
+
+    .unmarkCompleteBox {
+      display: flex;
+      justify-content: center;
+      padding: .5em;
+      font-size: 1.5em;
+
+      input {
+        margin-left: 1em;
+      }
     }
   }
 }

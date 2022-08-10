@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import '../Styles/TodosItem.css';
 
 export default function TodosItem({todo, state, setState}) {
@@ -7,6 +7,14 @@ export default function TodosItem({todo, state, setState}) {
   const [editing, setEditing] = useState(false);
   const [task, setTask] = useState(todo.task);
   const [incomplete, setIncomplete] = useState(false);
+  const editRef = useRef();
+
+  useEffect(() => {
+    if (editing) {
+      editRef.current.focus();
+      console.log('editing');
+    }
+  }, [editing]);
 
   const promptConfirmation = () => {
     setConfirmation(true);
@@ -88,7 +96,9 @@ export default function TodosItem({todo, state, setState}) {
             (<button 
               className="todo__button todo__button--edit"
               name="edit" 
-              onClick={() => {setEditing(true)}}
+              onClick={() => {
+                setEditing(true);
+              }}
             >Edit</button>)
           }
         </div>
@@ -96,24 +106,29 @@ export default function TodosItem({todo, state, setState}) {
 
       {editing && (
         <div className="todo__editBox">
-          <input
-            className="todo__input--taskEdit"
-            type="text"
-            value={task}
-            onChange={e => {setTask(e.target.value)}}
-          />
-          {todo.completed && (
-            <div>
-              <label htmlFor="unmarkComplete">Mark as Incomplete</label>
-              <input 
-                type="checkbox"
-                name="unmarkComplete"
-                onChange={e => {setIncomplete(e.target.checked);}}
-              />
-            </div>  
-          )}
-          <button onClick={confirmEdit}>Confirm</button>
-          <button onClick={() => setEditing(false)}>Cancel</button>
+          <div>
+            <input
+              ref={editRef}
+              className="todo__input--taskEdit"
+              type="text"
+              value={task}
+              onChange={e => {setTask(e.target.value)}}
+            />
+            {todo.completed && (
+              <div className="unmarkCompleteBox">
+                <label htmlFor="unmarkComplete">Mark as Incomplete</label>
+                <input 
+                  type="checkbox"
+                  name="unmarkComplete"
+                  onChange={e => {setIncomplete(e.target.checked);}}
+                />
+              </div>  
+            )}
+          </div>
+          <div className="todo__editBox--confirmationButtons">
+            <button className="todo__button todo__button--confirm" onClick={confirmEdit}>Confirm</button>
+            <button className="todo__button todo__button--cancel" onClick={() => setEditing(false)}>Cancel</button>
+          </div>
         </div>
       )}
 
