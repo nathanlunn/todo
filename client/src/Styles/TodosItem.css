@@ -1,17 +1,17 @@
 .todo {
   display: flex;
   flex-direction: column;
-  padding: 0.6em;
+  padding: 0.6rem;
   background-color: #F0DFAD;
-  border: solid 0.1em #2F1000;
+  border: solid 0.1rem #2F1000;
   position: relative;
-  height: 7em;
+  height: 7rem;
 }
 .todo .todo__button {
-  padding: 0.8em;
-  border: solid black 0.2em;
+  padding: 0.8rem;
+  border: solid black 0.2rem;
   border-radius: 5px;
-  margin: 0.1em;
+  margin: 0.1rem;
 }
 .todo .todo__button:hover {
   cursor: pointer;
@@ -34,7 +34,7 @@
   color: rgb(244, 229, 194);
 }
 .todo .todo__p {
-  font-size: 2em;
+  font-size: 2rem;
   font-family: "Uchen", serif;
 }
 .todo .todo__p--completed {
@@ -45,11 +45,11 @@
   flex-direction: column;
   justify-content: space-around;
   position: absolute;
-  padding: 0.4em;
-  border: solid 0.1em black;
+  padding: 0.4rem;
+  border: solid 0.1rem black;
   background-color: rgb(207, 65, 25);
   color: rgb(244, 229, 194);
-  width: 20em;
+  width: 20rem;
   left: 0;
   right: 0;
   margin-left: auto;
@@ -58,10 +58,10 @@
   height: 70%;
 }
 .todo .todo__confirmationBox .todo__button--yes {
-  padding: 0.2em;
+  padding: 0.2rem;
 }
 .todo .todo__confirmationBox .todo__button--no {
-  padding: 0.2em;
+  padding: 0.2rem;
 }
 .todo .todo__editBox {
   display: flex;

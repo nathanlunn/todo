@@ -2,33 +2,33 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2em;
+  padding: 2rem;
   background-color: #621B00;
 }
 .userPage h1 {
-  margin-bottom: 0.5em;
+  margin-bottom: 0.5rem;
   font-family: "Cinzel", serif;
   color: rgb(244, 229, 194);
 }
 .userPage .userPage__newTodo input {
   box-sizing: border-box;
-  height: 50px;
-  border: solid black 0.15em;
+  height: 3rem;
+  border: solid black 0.15rem;
   border-radius: 5px 0 0 5px;
   border-right: 0;
-  font-size: 1em;
+  font-size: 1rem;
   position: relative;
   top: 1px;
 }
 .userPage .userPage__newTodo input:active {
-  border: solid black 0.2em;
+  border: solid black 0.2rem;
   border-right: 0;
 }
 .userPage .userPage__newTodo button {
   box-sizing: border-box;
-  height: 50px;
-  padding: 0.8em;
-  border: solid black 0.2em;
+  height: 3rem;
+  padding: 0.8rem;
+  border: solid black 0.15rem;
   border-radius: 0 5px 5px 0;
 }
 .userPage .userPage__newTodo button:hover {

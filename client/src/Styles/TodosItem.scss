@@ -3,17 +3,17 @@
 .todo {
   display: flex;
   flex-direction: column;
-  padding: .6em;
+  padding: .6rem;
   background-color: $banana;
-  border: solid .1em $blackBean;
+  border: solid .1rem $blackBean;
   position: relative;
-  height: 7em;
+  height: 7rem;
 
   .todo__button{
-    padding: .8em;
-    border: solid black .2em;
+    padding: .8rem;
+    border: solid black .2rem;
     border-radius: 5px;
-    margin: .1em;
+    margin: .1rem;
   }
   .todo__button:hover {
     cursor: pointer;
@@ -39,7 +39,7 @@
   }
 
   .todo__p {
-    font-size: 2em;
+    font-size: 2rem;
     font-family: 'Uchen', serif;
 
   }
@@ -53,11 +53,11 @@
     flex-direction: column;
     justify-content: space-around;
     position: absolute;
-    padding: .4em;
-    border: solid .1em black;
+    padding: .4rem;
+    border: solid .1rem black;
     background-color: $red;
     color: $lightLetters;
-    width: 20em;
+    width: 20rem;
     left: 0;
     right: 0;
     margin-left: auto;
@@ -66,11 +66,11 @@
     height: 70%;
 
     .todo__button--yes {
-      padding: .2em;
+      padding: .2rem;
     }
 
     .todo__button--no {
-      padding: .2em;
+      padding: .2rem;
     }
   }
 
